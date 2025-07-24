@@ -79,7 +79,7 @@ function Topbar() {
                         xs: "60%",
                         sm: "360px"
                     },
-                    margin: "0 5% 0 7%",
+                    margin: "0 10%",
                     border: "none",
                     backgroundColor: "white",
                     borderRadius: "10px",
@@ -106,7 +106,8 @@ function Topbar() {
                 />}
             />
             <Box sx={{
-                width: "16%",
+                width: "10%",
+                height: "10vh",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center"
@@ -122,7 +123,7 @@ function Topbar() {
                                 aria-haspopup="true"
                                 aria-expanded={open ? 'true' : undefined}
                             >
-                                <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+                                <Avatar sx={{ width: 25, height: 25 }}></Avatar>
                             </IconButton>
                         </Tooltip>
                     </Box>
@@ -162,6 +163,7 @@ function Topbar() {
                         }}
                         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+                        disableScrollLock
                     >
                         <MenuItem onClick={handleClose}>
                             <Avatar /> Profile
