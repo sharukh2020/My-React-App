@@ -1,9 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
 import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -16,8 +14,8 @@ import LocalPostOfficeSharpIcon from '@mui/icons-material/LocalPostOfficeSharp';
 import ForumSharpIcon from '@mui/icons-material/ForumSharp';
 import GroupAddSharpIcon from '@mui/icons-material/GroupAddSharp';
 
-export default function TemporaryDrawer({
-    toggle, toggleHandle
+function TopbarDrawer({
+    toggle, toggleDrawer
 }) {
     const [open, setOpen] = React.useState(toggle);
     const renderDrawerIcons = (conditionParam) => {
@@ -48,7 +46,7 @@ export default function TemporaryDrawer({
         }
     }
     const DrawerList = (
-        <Box sx={{ width: 250 }} role="presentation" onClick={toggleHandle(false)}>
+        <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
             <List>
                 {['Home', "Friends List", 'Your Videos', 'Your Photos', 'Your Posts', 'Messages', 'Friend Requests'].map((text, index) => (
                     <ListItem key={text} disablePadding>
@@ -72,9 +70,11 @@ export default function TemporaryDrawer({
 
     return (
         <div>
-            <Drawer open={open} onClose={toggleHandle(false)}  disableScrollLock>
+            <Drawer open={open} onClose={toggleDrawer(false)} disableScrollLock>
                 {DrawerList}
             </Drawer>
         </div>
     );
 }
+
+export default TopbarDrawer
