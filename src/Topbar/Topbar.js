@@ -23,15 +23,19 @@ function Topbar() {
             container
             size={12}
             spacing={{
-                xs:2,
-                md:0
+                xs: 2,
+                md: 0
             }}
+            position="fixed"
             sx={{
                 height: "60px",
                 backgroundColor: theme.palette.primary.dark,
                 boxShadow: theme.shadows[3],
                 display: "flex",
-                alignItems: "center"
+                alignItems: "center",
+                [theme.breakpoints.up('md')]: {
+                    zIndex: (theme) => theme.zIndex.drawer + 1
+                },
             }}>
             <Grid
                 size={{ xs: "grow", sm: 1, md: 3 }}
