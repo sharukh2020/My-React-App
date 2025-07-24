@@ -72,7 +72,7 @@ export default function TemporaryDrawer({
 
     return (
         <div>
-            <Drawer open={open} onClose={toggleHandle(false)}>
+            <Drawer open={open} onClose={toggleHandle(false)}  disableScrollLock>
                 {DrawerList}
             </Drawer>
         </div>
