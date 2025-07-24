@@ -1,8 +1,11 @@
 import * as React from 'react';
+import { useTheme } from '@mui/material/styles';
 import Autocomplete from "@mui/material/Autocomplete"
 import TextField from "@mui/material/TextField"
 
+
 function Searchfield() {
+    const theme = useTheme();
     return (
         <Autocomplete
             disablePortal
@@ -20,6 +23,9 @@ function Searchfield() {
                 },
                 "& .MuiFormLabel-root": {
                     color: "#67696b"
+                },
+                [theme.breakpoints.up('sm')]: {
+                    width: "295px"
                 },
 
             }

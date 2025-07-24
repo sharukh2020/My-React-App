@@ -23,7 +23,19 @@ function TopbarMenu() {
     };
     return (
         <React.Fragment>
-            <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
+            <Box
+                sx={{
+                    display: 'flex',
+                    justifyContent: {
+                        xs:"center",
+                        md:"flex-end"
+                    },
+                    alignItems: 'center',
+                    textAlign: 'center',
+                    marginRight:{
+                        md:1
+                    }
+                }}>
                 <Tooltip title="Account settings">
                     <IconButton
                         onClick={handleClick}
@@ -32,7 +44,11 @@ function TopbarMenu() {
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
                     >
-                        <Avatar sx={{ width: 23, height: 23 }}></Avatar>
+                        <Avatar
+                            sx={{
+                                width: 23,
+                                height: 23
+                            }}></Avatar>
                     </IconButton>
                 </Tooltip>
             </Box>

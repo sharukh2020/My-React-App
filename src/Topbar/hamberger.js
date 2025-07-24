@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { useTheme } from '@mui/material/styles';
-import MenuSharpIcon from '@mui/icons-material/MenuSharp';
 import Box from "@mui/material/Box"
+import MenuSharpIcon from '@mui/icons-material/MenuSharp';
+
 
 function Hamberger({ toggleDrawer }) {
     const theme = useTheme();
@@ -12,9 +13,9 @@ function Hamberger({ toggleDrawer }) {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                [theme.breakpoints.up('sm')]: {
+                [theme.breakpoints.up('md')]: {
                     display: "none"
-                }
+                },
             }}
         >
             <MenuSharpIcon
