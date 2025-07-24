@@ -27,7 +27,7 @@ function Topbar() {
                 md:0
             }}
             sx={{
-                height: "50px",
+                height: "60px",
                 backgroundColor: theme.palette.primary.dark,
                 boxShadow: theme.shadows[3],
                 display: "flex",
