@@ -18,6 +18,7 @@ function TopbarDrawer({
     toggle, toggleDrawer
 }) {
     const [open, setOpen] = React.useState(toggle);
+
     const renderDrawerIcons = (conditionParam) => {
         switch (conditionParam) {
             case 0:
@@ -45,18 +46,30 @@ function TopbarDrawer({
                 break;
         }
     }
+
     const DrawerList = (
-        <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
+        <Box
+            sx={{
+                width: 250
+            }}
+            role="presentation"
+            onClick={toggleDrawer(false)}
+        >
             <List>
                 {['Home', "Friends List", 'Your Videos', 'Your Photos', 'Your Posts', 'Messages', 'Friend Requests'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
+                    <ListItem
+                        key={text}
+                        disablePadding
+                    >
                         <ListItemButton>
                             <ListItemIcon>
                                 {
                                     renderDrawerIcons(index)
                                 }
                             </ListItemIcon>
-                            <ListItemText primary={text} />
+                            <ListItemText
+                                primary={text}
+                            />
                         </ListItemButton>
                     </ListItem>
                 ))}
@@ -70,7 +83,14 @@ function TopbarDrawer({
 
     return (
         <div>
-            <Drawer open={open} onClose={toggleDrawer(false)} disableScrollLock>
+            <Drawer
+                open={open}
+                onClose={toggleDrawer(false)}
+                disableScrollLock
+                sx={{
+                    zIndex: 1202
+                }}
+            >
                 {DrawerList}
             </Drawer>
         </div>

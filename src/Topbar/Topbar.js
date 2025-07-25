@@ -21,18 +21,25 @@ function Topbar() {
     return (
         <Grid
             container
-            size={12}
             columns={24}
             sx={{
+                width: "100%",
                 height: "10vh",
                 backgroundColor: theme.palette.primary.dark,
                 boxShadow: theme.shadows[3],
                 display: "flex",
                 alignItems: "center",
+                position: "fixed",
+                left: 0,
+                top: 0,
+                zIndex: 1201
             }}
         >
             <Grid
-                size={{ xs: "grow", md: 3 }}
+                size={{
+                    xs: "grow",
+                    md: 3
+                }}
             >
                 <Hamberger
                     toggleDrawer={toggleDrawer}
@@ -44,12 +51,16 @@ function Topbar() {
                 <Logo />
             </Grid>
             <Grid
-                size={{ xs: 0, md: 12 }}
+                size={{
+                    xs: 0,
+                    md: 12
+                }}
             >
             </Grid>
             <Grid
                 size={{
-                    xs: 18, md: 8
+                    xs: 18,
+                    md: 8
                 }}
                 sx={{
                     [theme.breakpoints.up('md')]: {
@@ -61,10 +72,12 @@ function Topbar() {
                 <Searchfield />
             </Grid>
             <Grid
-                size={{ xs: "grow", md: 1 }}
+                size={{
+                    xs: "grow",
+                    md: 1
+                }}
             >
                 <TopbarMenu />
-
             </Grid>
         </Grid>
     );

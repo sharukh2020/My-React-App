@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 import Topbar from './Topbar/Topbar';
 import CssBaseline from '@mui/material/CssBaseline';
 import Body from './Body/body';
+import Sidebar from './Sidebar/sidebar';
 
 function App() {
   const theme = useTheme();
@@ -11,10 +12,9 @@ function App() {
   return (
     <Box component={"div"}>
       <CssBaseline />
-      <Grid container>
-        <Topbar/>
-        <Body/>
-      </Grid>
+      <Topbar />
+      <Sidebar />
+      <Body />
     </Box>
   );
 }

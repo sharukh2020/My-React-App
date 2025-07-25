@@ -13,10 +13,10 @@ import LocalPostOfficeSharpIcon from '@mui/icons-material/LocalPostOfficeSharp';
 import ForumSharpIcon from '@mui/icons-material/ForumSharp';
 import GroupAddSharpIcon from '@mui/icons-material/GroupAddSharp';
 import { useTheme } from '@mui/material/styles';
-import Grid from '@mui/material/Grid';
 
 export default function Sidebar() {
     const theme = useTheme();
+
     const renderDrawerIcons = (conditionParam) => {
         switch (conditionParam) {
             case 0:
@@ -45,38 +45,44 @@ export default function Sidebar() {
         }
     }
     return (
-        <Grid
-            size={{ xs: 0, md: 6, lg: 4 }}
-        >
-            <Drawer
-                variant="permanent"
-                sx={{
-                    height: "90vh",
-                    flexShrink: 0,
-                    [`& .MuiDrawer-paper`]: { width: "100%", boxSizing: 'border-box' },
-                    "& .MuiPaper-root": {
-                        position: "relative"
-                    },
-                }}
-            >
-                <Box sx={{ overflow: 'auto' }}>
-                    <List>
-                        {['Home', "Friends List", 'Your Videos', 'Your Photos', 'Your Posts', 'Messages', 'Friend Requests'].map((text, index) => (
-                            <ListItem key={text} disablePadding>
-                                <ListItemButton>
-                                    <ListItemIcon>
-                                        {
-                                            renderDrawerIcons(index)
-                                        }
-                                    </ListItemIcon>
-                                    <ListItemText primary={text} />
-                                </ListItemButton>
-                            </ListItem>
-                        ))}
-                    </List>
-                </Box>
-            </Drawer>
+        <Drawer
+            variant="permanent"
+            sx={{
+                height: "90vh",
+                flexShrink: 0,
+                [`& .MuiDrawer-paper`]: { width: "100%", boxSizing: 'border-box' },
+                "& .MuiPaper-root": {
+                    position: "relative"
+                },
+                [theme.breakpoints.up("md")]: {
+                    position: "fixed",
+                    left: 0,
+                    top: "10vh",
+                    zIndex: 1201,
+                    minWidth: "250px"
+                },
+                [theme.breakpoints.down("md")]: {
+                    display: "none"
+                },
 
-        </Grid>
+            }}
+        >
+            <Box sx={{ overflow: 'auto' }}>
+                <List>
+                    {['Home', "Friends List", 'Your Videos', 'Your Photos', 'Your Posts', 'Messages', 'Friend Requests'].map((text, index) => (
+                        <ListItem key={text} disablePadding>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    {
+                                        renderDrawerIcons(index)
+                                    }
+                                </ListItemIcon>
+                                <ListItemText primary={text} />
+                            </ListItemButton>
+                        </ListItem>
+                    ))}
+                </List>
+            </Box>
+        </Drawer>
     );
 }
