@@ -51,7 +51,7 @@ export default function Sidebar() {
             <Drawer
                 variant="permanent"
                 sx={{
-                    height: "88vh",
+                    height: "90vh",
                     flexShrink: 0,
                     [`& .MuiDrawer-paper`]: { width: "100%", boxSizing: 'border-box' },
                     "& .MuiPaper-root": {

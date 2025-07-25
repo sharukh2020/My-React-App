@@ -24,7 +24,7 @@ function Topbar() {
             size={12}
             columns={24}
             sx={{
-                height: "12vh",
+                height: "10vh",
                 backgroundColor: theme.palette.primary.dark,
                 boxShadow: theme.shadows[3],
                 display: "flex",
