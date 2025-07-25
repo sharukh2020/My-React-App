@@ -12,7 +12,7 @@ function Content() {
             <Grid
                 size={24}
                 sx={{
-                    height: "88vh"
+                    height: "90vh"
                 }}
             >
             </Grid>
