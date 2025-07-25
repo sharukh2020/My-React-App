@@ -22,68 +22,49 @@ function Topbar() {
         <Grid
             container
             size={12}
-            spacing={{
-                xs: 2,
-                md: 0
-            }}
-            position="fixed"
+            columns={24}
             sx={{
-                height: "60px",
+                height: "12vh",
                 backgroundColor: theme.palette.primary.dark,
                 boxShadow: theme.shadows[3],
                 display: "flex",
                 alignItems: "center",
-                [theme.breakpoints.up('md')]: {
-                    zIndex: (theme) => theme.zIndex.drawer + 1
-                },
-            }}>
+            }}
+        >
             <Grid
-                size={{ xs: "grow", sm: 1, md: 3 }}
+                size={{ xs: "grow", md: 3 }}
             >
-                <Item
-                    sx={{
-                        backgroundColor: "transparent",
-                        boxShadow: "none",
-                        // border: "1px solid black"
-                    }}>
-                    <Hamberger toggleDrawer={toggleDrawer} />
-                    <TopbarDrawer
-                        toggle={openDrawer}
-                        toggleDrawer={toggleDrawer} />
-                    <Logo />
-                </Item>
+                <Hamberger
+                    toggleDrawer={toggleDrawer}
+                />
+                <TopbarDrawer
+                    toggle={openDrawer}
+                    toggleDrawer={toggleDrawer}
+                />
+                <Logo />
             </Grid>
-            <Grid size={{
-                xs: 8, sm: 10, md: 8
-            }} sx={{
-
-            }}>
-                <Item sx={{
-                    backgroundColor: "transparent",
-                    boxShadow: "none",
-                    // border: "1px solid black",
-                    [theme.breakpoints.up('sm')]: {
-                        display: "flex",
-                        justifyContent: "center",
-                    },
+            <Grid
+                size={{ xs: 0, md: 12 }}
+            >
+            </Grid>
+            <Grid
+                size={{
+                    xs: 18, md: 8
+                }}
+                sx={{
                     [theme.breakpoints.up('md')]: {
-                        display: "flex",
+                        display: 'flex',
                         justifyContent: "flex-end",
                     },
-                }}>
-                    <Searchfield />
-                </Item>
+                }}
+            >
+                <Searchfield />
             </Grid>
             <Grid
-                size={{ xs: "grow", sm: 1 }} >
-                <Item
-                    sx={{
-                        backgroundColor: "transparent",
-                        boxShadow: "none",
-                        // border: "1px solid black"
-                    }}>
-                    <TopbarMenu />
-                </Item>
+                size={{ xs: "grow", md: 1 }}
+            >
+                <TopbarMenu />
+
             </Grid>
         </Grid>
     );

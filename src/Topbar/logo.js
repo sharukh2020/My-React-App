@@ -1,4 +1,3 @@
-import React from 'react'
 import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography'
 
@@ -9,7 +8,7 @@ function Logo() {
             variant="h6"
             sx={{
                 color: "white",
-                marginLeft: 2,
+                marginLeft: 1,
                 fontWeight: "bold",
                 [theme.breakpoints.down('md')]: {
                     display: "none",

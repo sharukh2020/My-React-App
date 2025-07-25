@@ -26,15 +26,9 @@ function TopbarMenu() {
             <Box
                 sx={{
                     display: 'flex',
-                    justifyContent: {
-                        xs:"center",
-                        md:"flex-end"
-                    },
+                    justifyContent: "center",
                     alignItems: 'center',
-                    textAlign: 'center',
-                    marginRight:{
-                        md:1
-                    }
+                    textAlign: 'center'
                 }}>
                 <Tooltip title="Account settings">
                     <IconButton
