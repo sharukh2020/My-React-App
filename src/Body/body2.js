@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { auth } from "../firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useTheme } from '@mui/material/styles'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box';
@@ -10,20 +10,20 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-function Body() {
+function Body2() {
     const theme = useTheme();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleSignUp = async (e) => {
-        e.preventDefault();
-        try {
-            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            console.log("User signed up:", userCredential.user);
-        } catch (error) {
-            console.error("Error signing up:", error.message);
-        }
-    };
+    const handleSignIn = async (e) => {
+    e.preventDefault();
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      console.log("User signed in:", userCredential.user);
+    } catch (error) {
+      console.error("Error signing in:", error.message);
+    }
+  };
 
     return (
         <Box
@@ -52,7 +52,7 @@ function Body() {
                 width: "400px"
             }}
             >
-                <form onSubmit={handleSignUp}>
+                <form onSubmit={handleSignIn}>
                     <Grid
                         container
                         sx={{
@@ -73,7 +73,7 @@ function Body() {
                                     color: "grey",
                                 }}
                             >
-                                Sign Up
+                                Sign In
                             </Typography>
                         </Grid>
                         <Grid
@@ -138,43 +138,4 @@ function Body() {
     )
 }
 
-export default Body
-
-
-{/* <Grid
-                container
-                columns={24}
-                spacing={2}
-                sx={{
-                    paddingLeft: 2,
-                    paddingRight: 2,
-                    paddingBottom: 2
-                }}
-            >
-
-                {
-                    Array.from({ length: 8 }).map((_, i) => {
-                        return (
-                            <Grid
-                                key={i}
-                                size={{
-                                    xs: 24,
-                                    sm: 12,
-                                    lg: 6,
-                                    xl:4
-                                }}
-                                sx={{
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-
-                                }}
-                            >
-                                <MultiActionAreaCard />
-                            </Grid>
-                        );
-                    })
-
-                }
-            </Grid> */}
+export default Body2
