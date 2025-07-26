@@ -19,7 +19,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const appCheck = initializeAppCheck(app, {
-  provider: new ReCaptchaV3Provider('6Lcmxo8rAAAAAK6Y117hZ5NQhA7gufjwsX3CiMYi'),
+  provider: new ReCaptchaV3Provider('abcdefghijklmnopqrstuvwxy-1234567890abcd'),
   isTokenAutoRefreshEnabled: true,
 });
 // Initialize Firebase Authentication and get a reference to the service
