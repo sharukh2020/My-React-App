@@ -1,22 +1,23 @@
 import { useTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import Topbar from './Topbar/Topbar';
 import CssBaseline from '@mui/material/CssBaseline';
-import Body from './Body/body';
-import Sidebar from './Sidebar/sidebar';
-import Body2 from './Body/body2';
+import Box from '@mui/material/Box';
+import Topbar from './WebPageSection/Topbar/Topbar';
+import Sidebar from './WebPageSection/Sidebar/sidebar';
+import ContentSection from './WebPageSection/ContentSection/contentsection';
+import SignUp from './WebPageSection/Authentication/SignUp/signup';
+import SignIn from './WebPageSection/Authentication/SignIn/signin';
 
 function App() {
   const theme = useTheme();
-  console.log(theme)
+  // console.log(theme)
   return (
     <Box component={"div"}>
       <CssBaseline />
       <Topbar />
-      <Sidebar />
-      <Body />
-      <Body2/>
+      {/* <Sidebar /> */}
+      {/* <ContentSection /> */}
+      <SignUp />
+      {/* <SignIn /> */}
     </Box>
   );
 }

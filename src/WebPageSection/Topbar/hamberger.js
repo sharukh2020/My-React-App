@@ -2,7 +2,6 @@ import { useTheme } from '@mui/material/styles';
 import Box from "@mui/material/Box"
 import MenuSharpIcon from '@mui/icons-material/MenuSharp';
 
-
 function Hamberger({ toggleDrawer }) {
     const theme = useTheme();
     return (
@@ -29,5 +28,4 @@ function Hamberger({ toggleDrawer }) {
         </Box>
     )
 }
-
 export default Hamberger

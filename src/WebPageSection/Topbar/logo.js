@@ -18,5 +18,4 @@ function Logo() {
         </Typography>
     )
 }
-
 export default Logo

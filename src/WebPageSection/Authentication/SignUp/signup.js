@@ -1,48 +1,57 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { auth } from "../firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { useState } from "react";
 import { useTheme } from '@mui/material/styles'
+
+// Firebase
+import { auth } from "../firebase/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box';
-import MultiActionAreaCard from './card';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-function Body2() {
+
+function SignUp() {
     const theme = useTheme();
+
+    // Handling Firebase SignUp
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleSignIn = async (e) => {
-    e.preventDefault();
-    try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      console.log("User signed in:", userCredential.user);
-    } catch (error) {
-      console.error("Error signing in:", error.message);
-    }
-  };
+    // -------------------------------------------------------------------------------------------
+
+    const handleSignUp = async (e) => {
+        e.preventDefault();
+        try {
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            console.log("User signed up:", userCredential.user);
+        } catch (error) {
+            console.error("Error signing up:", error.message);
+        }
+    };
+
+    // -------------------------------------------------------------------------------------------
 
     return (
         <Box
             sx={{
                 position: "relative",
-                left: "250px",
+                // left: "250px",
+                left: "0",
                 top: "10vh",
-                // marginTop: 2,
                 [theme.breakpoints.down("md")]: {
                     left: 0,
                 },
-                [theme.breakpoints.up("md")]: {
-                    width: 'calc(100vw - 266px)'
-                },
+                // [theme.breakpoints.up("md")]: {
+                //     width: 'calc(100vw - 266px)'
+                // },
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
                 paddingTop: 2,
                 paddingBottom: 2,
+                height: "90vh",
             }}>
             <Box sx={{
                 boxShadow: 5,
@@ -52,7 +61,9 @@ function Body2() {
                 width: "400px"
             }}
             >
-                <form onSubmit={handleSignIn}>
+                {/* handleSignUp On Form Submit */}
+                <form onSubmit={handleSignUp}>
+                    {/* -------------------------------------------------------- */}
                     <Grid
                         container
                         sx={{
@@ -73,7 +84,7 @@ function Body2() {
                                     color: "grey",
                                 }}
                             >
-                                Sign In
+                                Sign Up
                             </Typography>
                         </Grid>
                         <Grid
@@ -90,7 +101,10 @@ function Body2() {
                                 name={"email"}
                                 type={"email"}
                                 value={email}
+
+                                // Setting state for email
                                 onChange={(e) => setEmail(e.target.value)}
+                            //--------------------------------------------------------
                             />
                         </Grid>
                         <Grid
@@ -107,7 +121,10 @@ function Body2() {
                                 name={"password"}
                                 type={"password"}
                                 value={password}
+
+                                // Setting state for password
                                 onChange={(e) => setPassword(e.target.value)}
+                            //--------------------------------------------------------
                             />
                         </Grid>
 
@@ -138,4 +155,4 @@ function Body2() {
     )
 }
 
-export default Body2
+export default SignUp

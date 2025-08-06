@@ -2,7 +2,6 @@ import { useTheme } from '@mui/material/styles';
 import Autocomplete from "@mui/material/Autocomplete"
 import TextField from "@mui/material/TextField"
 
-
 function Searchfield() {
     const theme = useTheme();
     return (
@@ -41,5 +40,4 @@ function Searchfield() {
         />
     )
 }
-
 export default Searchfield

@@ -8,7 +8,7 @@ import CardActions from '@mui/material/CardActions';
 
 export default function MultiActionAreaCard() {
   return (
-    <Card sx={{   boxShadow:5}}>
+    <Card sx={{ boxShadow: 5 }}>
       <CardActionArea>
         <CardMedia
           component="img"

@@ -4,11 +4,8 @@ import Hamberger from './hamberger';
 import Searchfield from './searchfield';
 import TopbarDrawer from './drawer';
 import TopbarMenu from './menu';
-import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Logo from './logo';
-
-const Item = Paper
 
 function Topbar() {
     const theme = useTheme();
@@ -82,7 +79,6 @@ function Topbar() {
         </Grid>
     );
 }
-
 export default Topbar;
 
 
