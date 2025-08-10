@@ -19,7 +19,7 @@ import GroupAddSharpIcon from '@mui/icons-material/GroupAddSharp';
 function DrawerSidebar() {
     const theme = useTheme();
     const drawerSidebarState = useSelector((state) => state.drawerSidebarState);
-    const { openDrawerSidear } = drawerSidebarState
+    const { openDrawerSidebar } = drawerSidebarState
     const dispatch = useDispatch()
     const toggleDrawer = (toggle) => () => {
         dispatch(toggle)
@@ -85,7 +85,7 @@ function DrawerSidebar() {
 
     return (
         <Drawer
-            open={openDrawerSidear}
+            open={openDrawerSidebar}
             onClose={toggleDrawer(closeDrawerSideBar())}
             disableScrollLock
             sx={{
