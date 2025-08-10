@@ -1,4 +1,6 @@
-import * as React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useTheme } from '@mui/material/styles';
+import { closeDrawerSideBar } from '../appState/action';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
@@ -14,10 +16,14 @@ import LocalPostOfficeSharpIcon from '@mui/icons-material/LocalPostOfficeSharp';
 import ForumSharpIcon from '@mui/icons-material/ForumSharp';
 import GroupAddSharpIcon from '@mui/icons-material/GroupAddSharp';
 
-function TopbarDrawer({
-    toggle, toggleDrawer
-}) {
-    const [open, setOpen] = React.useState(toggle);
+function DrawerSidebar() {
+    const theme = useTheme();
+    const drawerSidebarState = useSelector((state) => state.drawerSidebarState);
+    const { openDrawerSidear } = drawerSidebarState
+    const dispatch = useDispatch()
+    const toggleDrawer = (toggle) => () => {
+        dispatch(toggle)
+    };
 
     const renderDrawerIcons = (conditionParam) => {
         switch (conditionParam) {
@@ -50,10 +56,10 @@ function TopbarDrawer({
     const DrawerList = (
         <Box
             sx={{
-                width: 250
+                width: "250px",
             }}
             role="presentation"
-            onClick={toggleDrawer(false)}
+            onClick={toggleDrawer(closeDrawerSideBar())}
         >
             <List>
                 {['Home', "Friends List", 'Your Videos', 'Your Photos', 'Your Posts', 'Messages', 'Friend Requests'].map((text, index) => (
@@ -77,23 +83,20 @@ function TopbarDrawer({
         </Box>
     );
 
-    React.useEffect(() => {
-        setOpen(toggle)
-    }, [toggle])
-
     return (
-        <div>
-            <Drawer
-                open={open}
-                onClose={toggleDrawer(false)}
-                disableScrollLock
-                sx={{
-                    zIndex: 1202
-                }}
-            >
-                {DrawerList}
-            </Drawer>
-        </div>
+        <Drawer
+            open={openDrawerSidear}
+            onClose={toggleDrawer(closeDrawerSideBar())}
+            disableScrollLock
+            sx={{
+                zIndex: 1202,
+                [theme.breakpoints.up('md')]: {
+                    display: "none"
+                },
+            }}
+        >
+            {DrawerList}
+        </Drawer>
     );
 }
-export default TopbarDrawer
+export default DrawerSidebar

@@ -12,17 +12,15 @@ export default function MultiActionAreaCard() {
       <CardActionArea>
         <CardMedia
           component="img"
-          height="140"
           image="https://static.investindia.gov.in/s3fs-public/2019-08/Software%20Industry.jpg"
           alt="green iguana"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Lizard
+           Card 
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+            Card Card Card Card Card Card Card Card Card Card Card Card
           </Typography>
         </CardContent>
       </CardActionArea>

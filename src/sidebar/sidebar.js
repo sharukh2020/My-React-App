@@ -1,4 +1,5 @@
 import { useTheme } from '@mui/material/styles';
+import { useSelector } from 'react-redux';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
@@ -16,6 +17,8 @@ import GroupAddSharpIcon from '@mui/icons-material/GroupAddSharp';
 
 function Sidebar() {
     const theme = useTheme();
+    const loginState = useSelector((state) => state.loginState);
+    const { login } = loginState
 
     const renderDrawerIcons = (conditionParam) => {
         switch (conditionParam) {
@@ -45,7 +48,7 @@ function Sidebar() {
         }
     }
     return (
-        <Drawer
+        login && <Drawer
             variant="permanent"
             sx={{
                 height: "90vh",
@@ -57,7 +60,7 @@ function Sidebar() {
                 [theme.breakpoints.up("md")]: {
                     position: "fixed",
                     left: 0,
-                    top: "10vh",
+                    top: "60px",
                     zIndex: 1201,
                     minWidth: "250px"
                 },

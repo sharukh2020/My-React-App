@@ -1,4 +1,7 @@
 import * as React from 'react';
+import { getAuth, signOut } from "firebase/auth";
+import { useDispatch } from 'react-redux';
+import { startLogoutProgress } from '../appState/action';
 import Box from "@mui/material/Box"
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
@@ -14,12 +17,25 @@ import Logout from '@mui/icons-material/Logout';
 function TopbarMenu() {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
+     const dispatch = useDispatch()
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
     const handleClose = () => {
         setAnchorEl(null);
+    };
+    const handleLogout = () => {
+        const auth = getAuth();
+
+        signOut(auth)
+            .then(() => {
+                console.log("User logged out successfully");
+                dispatch(startLogoutProgress())
+            })
+            .catch((error) => {
+                console.error("Error during sign out:", error);
+            });
     };
     return (
         <React.Fragment>
@@ -103,7 +119,7 @@ function TopbarMenu() {
                     </ListItemIcon>
                     Settings
                 </MenuItem>
-                <MenuItem onClick={handleClose}>
+                <MenuItem onClick={handleClose} onClick={handleLogout}>
                     <ListItemIcon>
                         <Logout fontSize="small" />
                     </ListItemIcon>

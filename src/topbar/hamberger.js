@@ -1,9 +1,15 @@
+import { useDispatch } from 'react-redux';
 import { useTheme } from '@mui/material/styles';
+import { openDrawerSideBar } from '../appState/action';
 import Box from "@mui/material/Box"
 import MenuSharpIcon from '@mui/icons-material/MenuSharp';
 
-function Hamberger({ toggleDrawer }) {
+function Hamberger() {
     const theme = useTheme();
+    const dispatch = useDispatch()
+    const toggleDrawer = (toggle) => () => {
+        dispatch(toggle)
+    };
     return (
         <Box
             component={"div"}
@@ -23,7 +29,7 @@ function Hamberger({ toggleDrawer }) {
                         color: "grey"
                     }
                 }}
-                onClick={toggleDrawer(true)}
+                onClick={toggleDrawer(openDrawerSideBar())}
             />
         </Box>
     )
